@@ -46,11 +46,11 @@ class whi_carmona_save_attendance extends Command
         $attendance = Attendance::orderBy('last_id','desc')->first();
         if($attendance == null)
         {
-            $attendances = AttendanceLog::orderBy('id','asc')->where('location','WHI-Carmona')->take(100)->get();
+            $attendances = AttendanceLog::orderBy('id','asc')->where('location','WHI-Carmona')->take(500)->get();
         }
         else
         {
-            $attendances = AttendanceLog::where('id','>',$attendance->last_id)->where('location','WHI-Carmona')->orderBy('id','asc')->take(100)->get();
+            $attendances = AttendanceLog::where('id','>',$attendance->last_id)->where('location','WHI-Carmona')->orderBy('id','asc')->take(500)->get();
         }
         // info($attendances->toArray());
         // dd($attendances);
