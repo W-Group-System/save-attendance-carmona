@@ -43,7 +43,7 @@ class whi_carmona_save_attendance extends Command
         ini_set('memory_limit', '-1');
 
         info("START Get Attendance Store in WHI-Carmona");
-        $attendance = Attendance::where('device_in','LIKE','%WHI-Carmona%')->orderBy('last_id','desc')->first();
+        $attendance = Attendance::orderBy('last_id','desc')->first();
         if($attendance == null)
         {
             $attendances = AttendanceLog::orderBy('id','asc')->where('location','WHI-Carmona')->take(500)->get();
